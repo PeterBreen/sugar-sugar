@@ -21,24 +21,25 @@ document.body.appendChild( renderer.domElement );
 //////////////////////////////
 
 var mesh;
-var length = 12, width = 8;
+var length = randBetween(1, 6),
+var width = randBetween(1, 8);
 
 //create base shape
 var shape = new THREE.Shape();
-shape.moveTo( 0,0 );
-shape.lineTo( 0, width );
+shape.moveTo( randBetween(0,1.5),randBetween(0,1.5) );
+shape.lineTo( randBetween(0,1.5), width );
 shape.lineTo( length, width );
-shape.lineTo( length, 0 );
-shape.lineTo( 0, 0 );
+shape.lineTo( length, randBetween(0,1.5) );
+shape.lineTo( randBetween(0,1.5), randBetween(0,1.5) );
 
 //extrude shape (see https://threejs.org/docs/index.html#api/geometries/ExtrudeGeometry)
 var extrudeSettings = {
   steps: 2,
-  amount: 16,
+  amount: randBetween(3,6),
   bevelEnabled: true,
   bevelThickness: 1,
-  bevelSize: 1,
-  bevelSegments: 1
+  bevelSize: randBetween(1,3),
+  bevelSegments: 1.5
 };
 var geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
 var textureLoader = new THREE.TextureLoader();
