@@ -84,7 +84,7 @@ function randBetween(min, max) {
 }
 
 // call render to get it all working
-for ( var i = 0; i < 3; i ++ ) {
+for ( var i = 0; i < 300; i ++ ) {
   createMesh();
 }
 render();
