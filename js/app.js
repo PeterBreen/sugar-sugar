@@ -56,6 +56,7 @@ function createMesh() {
     mesh = new THREE.Mesh(geometry, material) ;
     mesh.geometry.center();
     scene.add(mesh);
+    crystals.push(mesh);
   });
 }
 
