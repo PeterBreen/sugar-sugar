@@ -53,7 +53,11 @@ function createMesh() {
       side: THREE.DoubleSide,
       blending: THREE.AdditiveBlending
     });
-    mesh = new THREE.Mesh(geometry, material) ;
+    mesh = new THREE.Mesh(geometry, material);
+    var xCor = randBetween(-50,50);
+    var yCor = randBetween(-50,50);
+    var zCor = randBetween(-50,50);
+    mesh.position.set(xCor,yCor,zCor);
     mesh.geometry.center();
     scene.add(mesh);
     crystals.push(mesh);
