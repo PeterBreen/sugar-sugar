@@ -21,7 +21,7 @@ document.body.appendChild( renderer.domElement );
 //////////////////////////////
 
 var mesh;
-var length = randBetween(1, 6),
+var length = randBetween(1, 6);
 var width = randBetween(1, 8);
 
 //create base shape
