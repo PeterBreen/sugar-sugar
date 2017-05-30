@@ -73,8 +73,8 @@ function createMesh() {
 function render() {
     requestAnimationFrame( render );
     crystals.forEach(function(mesh) {
-      mesh.rotation.x += 0.03;
-      mesh.rotation.y += 0.03;
+      mesh.rotation.x += mesh.rotateAt;
+      mesh.rotation.y += mesh.rotateAt;
     });
     renderer.render( scene, camera );
 }
