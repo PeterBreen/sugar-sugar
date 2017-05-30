@@ -1,4 +1,5 @@
 var crystals = [];
+var crystalNum = 200;
 
 //////////////////////////////
 // Camera and scene
@@ -84,7 +85,7 @@ function randBetween(min, max) {
 }
 
 // call render to get it all working
-for ( var i = 0; i < 300; i ++ ) {
+for ( var i = 0; i < crystalNum; i ++ ) {
   createMesh();
 }
 render();
