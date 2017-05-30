@@ -44,7 +44,7 @@ function createMesh() {
   var geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
   var textureLoader = new THREE.TextureLoader();
   textureLoader.crossOrigin = true;
-  textureLoader.load('../vendor/sugar-texture-4.png', function(texture) {
+  textureLoader.load('/sugar-sugar/vendor/sugar-texture-4.png', function(texture) {
     texture.wrapS = texture.wrapT = THREE.MirroredRepeatWrapping;
     texture.repeat.set(0.1,0.1);
     var material = new THREE.MeshBasicMaterial({
