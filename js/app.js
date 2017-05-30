@@ -15,13 +15,6 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 //puts canvas element in DOM
 document.body.appendChild( renderer.domElement );
 
-//see https://threejs.org/docs/index.html#manual/introduction/Creating-a-scene section "Rendering a scene" on using RAF vs setInterval
-function render() {
-    requestAnimationFrame( render );
-    renderer.render( scene, camera );
-}
-render();
-
 
 //
 // Create sugar particle
@@ -52,3 +45,16 @@ var material = new THREE.MeshBasicMaterial( { color: 0x007fff } );
 mesh = new THREE.Mesh(geometry, material) ;
 
 scene.add(mesh);
+
+//
+// render to dom
+//
+
+//see https://threejs.org/docs/index.html#manual/introduction/Creating-a-scene section "Rendering a scene" on using RAF vs setInterval
+function render() {
+    requestAnimationFrame( render );
+    mesh.rotation.x += 0.03;
+    mesh.rotation.y += 0.03;
+    renderer.render( scene, camera );
+}
+render();
