@@ -1,6 +1,6 @@
-//
+//////////////////////////////
 // Camera and scene
-//
+//////////////////////////////
 
 var scene = new THREE.Scene();
 
@@ -16,9 +16,9 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
 
-//
-// Create sugar particle
-//
+//////////////////////////////
+// All things sugar particle
+//////////////////////////////
 
 var mesh;
 var length = 12, width = 8;
@@ -41,14 +41,21 @@ var extrudeSettings = {
   bevelSegments: 1
 };
 var geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
-var material = new THREE.MeshBasicMaterial( { color: 0x007fff } );
-mesh = new THREE.Mesh(geometry, material) ;
+var textureLoader = new THREE.TextureLoader();
+textureLoader.crossOrigin = true;
+textureLoader.load('../vendor/sugar-texture-4.png', function(texture) {
+  texture.wrapS = texture.wrapT = THREE.MirroredRepeatWrapping;
+  var material = new THREE.MeshBasicMaterial({map: texture});
+  mesh = new THREE.Mesh(geometry, material) ;
+  mesh.geometry.center();
+  scene.add(mesh);
+  render();
+});
 
-scene.add(mesh);
 
-//
+//////////////////////////////
 // render to dom
-//
+//////////////////////////////
 
 //see https://threejs.org/docs/index.html#manual/introduction/Creating-a-scene section "Rendering a scene" on using RAF vs setInterval
 function render() {
@@ -58,4 +65,3 @@ function render() {
     mesh.geometry.center();
     renderer.render( scene, camera );
 }
-render();
