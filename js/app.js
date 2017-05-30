@@ -60,7 +60,7 @@ textureLoader.load('../vendor/sugar-texture-4.png', function(texture) {
 });
 
 //////////////////////////////
-// render to dom
+// functions to call elsewhere
 //////////////////////////////
 
 //see https://threejs.org/docs/index.html#manual/introduction/Creating-a-scene section "Rendering a scene" on using RAF vs setInterval
@@ -70,4 +70,8 @@ function render() {
     mesh.rotation.y += 0.03;
     mesh.geometry.center();
     renderer.render( scene, camera );
+}
+
+function randBetween(min, max) {
+  return (Math.random() * (max - min)) + min;
 }
