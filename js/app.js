@@ -67,8 +67,10 @@ function createMesh() {
 //see https://threejs.org/docs/index.html#manual/introduction/Creating-a-scene section "Rendering a scene" on using RAF vs setInterval
 function render() {
     requestAnimationFrame( render );
-    mesh.rotation.x += 0.03;
-    mesh.rotation.y += 0.03;
+    crystals.forEach(function(mesh) {
+      mesh.rotation.x += 0.03;
+      mesh.rotation.y += 0.03;
+    });
     mesh.geometry.center();
     renderer.render( scene, camera );
 }
