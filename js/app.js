@@ -59,6 +59,7 @@ function createMesh() {
     var zCor = randBetween(-50,50);
     mesh.position.set(xCor,yCor,zCor);
     mesh.geometry.center();
+    mesh.rotateAt = randBetween(0.01, 0.04);
     scene.add(mesh);
     crystals.push(mesh);
   });
