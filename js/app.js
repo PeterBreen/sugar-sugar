@@ -55,6 +55,7 @@ function render() {
     requestAnimationFrame( render );
     mesh.rotation.x += 0.03;
     mesh.rotation.y += 0.03;
+    mesh.geometry.center();
     renderer.render( scene, camera );
 }
 render();
