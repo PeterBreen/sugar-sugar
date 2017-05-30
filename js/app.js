@@ -46,13 +46,18 @@ textureLoader.crossOrigin = true;
 textureLoader.load('../vendor/sugar-texture-4.png', function(texture) {
   texture.wrapS = texture.wrapT = THREE.MirroredRepeatWrapping;
   texture.repeat.set(0.1,0.1);
-  var material = new THREE.MeshBasicMaterial({map: texture});
+  var material = new THREE.MeshBasicMaterial({
+    map: texture,
+    transparent: true,
+    premultipliedAlpha: true,
+    side: THREE.doubleSide,
+    blending: THREE.AdditiveBlending
+  });
   mesh = new THREE.Mesh(geometry, material) ;
   mesh.geometry.center();
   scene.add(mesh);
   render();
 });
-
 
 //////////////////////////////
 // render to dom
