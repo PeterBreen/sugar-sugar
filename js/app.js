@@ -9,7 +9,7 @@ var scene = new THREE.Scene();
 //consider modifying this later for a full screen effect
 var camera = new THREE.OrthographicCamera(window.innerWidth / - 2, window.innerWidth / 2, window.innerHeight / 2, window.innerHeight / - 2, - 500, 1000 );
 
-camera.zoom = 5;
+camera.zoom = 3;
 camera.updateProjectionMatrix();
 var renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setSize( window.innerWidth, window.innerHeight );
@@ -55,9 +55,9 @@ function createMesh() {
       blending: THREE.AdditiveBlending
     });
     mesh = new THREE.Mesh(geometry, material);
-    var xCor = randBetween(-50,50);
-    var yCor = randBetween(-50,50);
-    var zCor = randBetween(-50,50);
+    var xCor = randBetween(-120,120);
+    var yCor = randBetween(-120,120);
+    var zCor = randBetween(-120,120);
     mesh.position.set(xCor,yCor,zCor);
     mesh.geometry.center();
     mesh.rotateAt = randBetween(0.01, 0.04);
