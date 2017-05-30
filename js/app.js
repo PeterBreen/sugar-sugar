@@ -1,4 +1,3 @@
-var THREE = require('three');
 var scene = new THREE.Scene();
 
 //consider modifying this later for a full screen effect
