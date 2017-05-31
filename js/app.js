@@ -89,3 +89,12 @@ for ( var i = 0; i < crystalNum; i ++ ) {
   createMesh();
 }
 render();
+
+//event listener for resize from https://github.com/mrdoob/three.js/issues/69
+window.addEventListener( 'resize', onWindowResize, false );
+
+function onWindowResize(){
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+}
