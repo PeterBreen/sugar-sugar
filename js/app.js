@@ -13,7 +13,7 @@ camera.zoom = 3;
 camera.updateProjectionMatrix();
 var renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setSize( window.innerWidth, window.innerHeight );
-
+renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
 //puts canvas element in DOM
 document.body.appendChild( renderer.domElement );
 
@@ -44,7 +44,7 @@ function createMesh() {
   var geometry = new THREE.ExtrudeGeometry( shape, extrudeSettings );
   var textureLoader = new THREE.TextureLoader();
   textureLoader.crossOrigin = true;
-  textureLoader.load('/sugar-sugar/vendor/sugar-texture-4.png', function(texture) {
+  textureLoader.load('/vendor/sugar-texture-4.png', function(texture) {
     texture.wrapS = texture.wrapT = THREE.MirroredRepeatWrapping;
     texture.repeat.set(0.1,0.1);
     var material = new THREE.MeshBasicMaterial({
@@ -89,3 +89,12 @@ for ( var i = 0; i < crystalNum; i ++ ) {
   createMesh();
 }
 render();
+
+//event listener for resize from https://github.com/mrdoob/three.js/issues/69
+window.addEventListener( 'resize', onWindowResize, false );
+
+function onWindowResize(){
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+}
